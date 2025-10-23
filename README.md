@@ -4,7 +4,9 @@ Python app that connects to the Alpha Vantage API to display stock data trends.
 
 ## Team Members
 - Paige Dorrell (Scrum Master)
-- [Add teammates’ names]
+- James Perez (PO)
+- Will Amlong (Developer)
+- Logan Anderson (Developer)
 
 ## Features
 - Accepts stock symbol, chart type, and date range
