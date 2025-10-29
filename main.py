@@ -3,6 +3,7 @@
 
 import requests
 import matplotlib.pyplot as plt
+from input_handler import get_symbol, get_chart_type, get_time_series_function, get_start_date, get_end_date
 
 def get_stock_data(symbol, api_key, function="TIME_SERIES_DAILY"):
     """Retrieve stock data from Alpha Vantage API"""
@@ -12,16 +13,15 @@ def get_stock_data(symbol, api_key, function="TIME_SERIES_DAILY"):
 
 def main():
     print("Welcome to the Stock Data Visualization App!")
-
-    # --- User Input (rubric: accepts user input) ---
-    symbol = input("Enter stock symbol: ").upper()
-    chart_type = input("Enter chart type (line/bar): ").lower()
-    start_date = input("Enter start date (YYYY-MM-DD): ")
-    end_date = input("Enter end date (YYYY-MM-DD): ")
+    symbol = get_symbol()
+    chart_type = get_chart_type()
+    function = get_time_series_function()
+    start_date = get_start_date()
+    end_date = get_end_date()
 
     # --- Validate Date Range (rubric: validates date range) ---
     if end_date < start_date:
-        print("❌ Error: End date cannot be before start date.")
+        print("Error: End date cannot be before start date.")
         return
 
     api_key = input("Enter your Alpha Vantage API key: ")
@@ -30,7 +30,7 @@ def main():
     data = get_stock_data(symbol, api_key)
 
     if "Error Message" in data:
-        print("❌ Invalid symbol or API issue.")
+        print("Invalid symbol or API issue.")
         return
 
     print("✅ Data retrieved successfully!")
