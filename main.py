@@ -84,10 +84,17 @@ def main():
     start_date = input("Enter start date (YYYY-MM-DD): ")
     end_date = input("Enter end date (YYYY-MM-DD): ")
 
-    # --- Validate Date Range (rubric: validates date range) ---
-    if end_date < start_date:
-        print("Error: End date cannot be before start date.")
-        return
+    try: 
+        startdate = datetime.strptime(start_date, "%Y-%m-%d")
+        enddate = datetime.strptime(end_date, "%Y-%m-%d")
 
+    ## validates the ranges part of the rubric
+        if enddate < startdate:
+            print("Error: End date cannot be before start date.")
+            return
+    except ValueError:
+        print("invalid Date, please sure the YYYY-DD-MM format.")
+        return
+    
 if __name__ == "__main__":
     main()
