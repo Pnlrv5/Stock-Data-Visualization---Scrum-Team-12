@@ -8,7 +8,6 @@ from datetime import datetime
 import webbrowser
 
 def get_stock_data(symbol, api_key, function="TIME_SERIES_DAILY"):
-    """Retrieve stock data from Alpha Vantage API"""
     url = f"https://www.alphavantage.co/query?function={function}&symbol={symbol}&apikey={api_key}&outputsize=full"
     response = requests.get(url)
     # Verify response
