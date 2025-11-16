@@ -8,4 +8,4 @@ services:
       - "5001:5001"  # host:container
     environment:
       FLASK_ENV: development
-      ALPHA_VANTAGE_API_KEY: "HQXG2RROB6JX4YLI"
+      ALPHA_VANTAGE_API_KEY: "7POB601QF0U51Q8R"
